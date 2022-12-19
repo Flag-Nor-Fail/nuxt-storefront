@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@vueuse/core": "^9.6.0",
+    "@vueuse/nuxt": "^9.6.0",
+    "@vueuse/router": "^9.6.0",
+    "nuxt-icon": "^0.1.8"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.34.0",
+    "@nuxtjs/apollo": "5.0.0-alpha.2",
+    "eslint": "^8.29.0",
+    "nuxt": "3.0.0"
+  }
+}
