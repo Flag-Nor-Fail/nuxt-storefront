@@ -10,7 +10,12 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxtjs/apollo',
     'nuxt-icon',
+    '@nuxtjs/tailwindcss',
   ],
+
+  tailwindcss: {
+    configPath: './tailwind.config.js',
+  },
 
   apollo: {
     clients: {

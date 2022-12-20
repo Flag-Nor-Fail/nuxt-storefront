@@ -16,6 +16,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "^0.34.0",
     "@nuxtjs/apollo": "5.0.0-alpha.2",
+    "@nuxtjs/tailwindcss": "^6.2.0",
     "eslint": "^8.29.0",
     "nuxt": "3.0.0"
   }

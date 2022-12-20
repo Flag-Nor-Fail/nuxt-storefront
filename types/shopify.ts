@@ -1656,6 +1656,8 @@ export interface CommentEdge {
 /** A country. */
 export interface Country {
   __typename?: 'Country'
+  /** The languages available for the country. */
+  availableLanguages: Array<Language>
   /** The currency of the country. */
   currency: Currency
   /** The ISO code of the country. */
@@ -4754,10 +4756,14 @@ export interface PageEdge {
  */
 export interface PageInfo {
   __typename?: 'PageInfo'
+  /** The cursor corresponding to the last node in edges. */
+  endCursor?: Maybe<Scalars['String']>
   /** Whether there are more pages to fetch following the current page. */
   hasNextPage: Scalars['Boolean']
   /** Whether there are any pages prior to the current page. */
   hasPreviousPage: Scalars['Boolean']
+  /** The cursor corresponding to the first node in edges. */
+  startCursor?: Maybe<Scalars['String']>
 }
 
 /** The set of valid sort keys for the Page query. */

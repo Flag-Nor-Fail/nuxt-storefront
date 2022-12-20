@@ -14,7 +14,7 @@ export const useShop = () => {
         if (data.value?.shop.id)
           shop.value = data.value.shop
         else
-          console.error('Shop did not return a valid ID')
+          console.error('Shopify did not return a shop ID', data.value)
       })
       .catch(err => console.error(err))
   }
