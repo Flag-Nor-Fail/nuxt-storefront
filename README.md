@@ -99,6 +99,8 @@ This template is still in active development, and is not yet ready for productio
   - [x] Checkout Button
   - [x] Summary
 - [ ] Shopify Pages
+  - [x] Content
+  - [ ] SEO
 - [ ] Customer Authentication
   - [ ] Login
   - [ ] Register
