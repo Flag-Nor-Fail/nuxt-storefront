@@ -1,10 +1,14 @@
 # Nuxt Storefront
 
+![Nuxt Storefront Banner](/.github/images/banner.png)
+
 ## Introduction
 
-Nuxt Storefront is a batteries-included, production-ready, headless and open-source e-commerce template for Nuxt 3-powered storefront.
+Nuxt Storefront is a batteries-included, production-ready, headless and open-source e-commerce template for Nuxt 3-powered storefronts.
 
 ## Features
+
+🛍️ Search and browse products
 
 💫 Shopify store branding
 
