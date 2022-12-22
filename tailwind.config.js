@@ -22,6 +22,12 @@ export default {
           background: 'rgb(var(--secondary-background), <alpha-value>)',
         },
       },
+      fontFamily: {
+        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+      },
     },
   },
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }

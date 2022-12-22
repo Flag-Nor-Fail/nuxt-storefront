@@ -44,11 +44,12 @@ export const useCart = () => {
 
   // Lines
   const lines = computed(() => cart.value?.lines ?? [])
-  const linesCount = computed(() => lines.value.edges.length)
+  const linesCount = computed(() => lines.value?.edges?.length ?? 0)
 
   // Cost
   const subtotal = computed(() => cart.value?.cost.subtotalAmount)
   const total = computed(() => cart.value?.cost.totalAmount)
+  const tax = computed(() => cart.value?.cost.totalTaxAmount)
 
   // Discounts
   const discounts = computed(() => cart.value?.discountCodes ?? [])
@@ -60,7 +61,13 @@ export const useCart = () => {
   // Localizations
   const currencyCode = computed(() => total.value.currencyCode)
 
+  // Utilities
+  const isInCart = (merchandiseId: string) => {
+    return lines.value?.edges?.some(line => line.node.merchandise.id === merchandiseId) ?? false
+  }
+
   // Functions
+  // Create a new cart
   const createCart = async (input?: CartInput) => {
     const { mutate } = useMutation<CartMutCreate>(cartCreate)
     await mutate({
@@ -85,13 +92,13 @@ export const useCart = () => {
   // Get cart by ID
   const retrieveCart = async () => {
     if (!cartId.value)
-      await createCart()
+      return
     await useAsyncQuery<CartRet>(getCart, {
-      id: cartId.value,
+      id: cartId.value || cart.value.id,
       // TODO: countryCode
     })
       .then((res) => {
-        if (res.data.value?.cart.id)
+        if (res.data.value?.cart?.id)
           cart.value = res.data.value.cart
         else
           console.error('Cart ID exists but no cart was returned')
@@ -202,10 +209,12 @@ export const useCart = () => {
     linesCount,
     subtotal,
     total,
+    tax,
     discounts,
     buyerIdentity,
     isBuyerAttached,
     currencyCode,
+    isInCart,
     createCart,
     retrieveCart,
     add,

@@ -3,6 +3,7 @@
 await Promise.all([
   await useShop().init(),
   await useLocalization().localize(),
+  await useCart().retrieveCart(),
 ])
 
 // Log Apollo errors to console
@@ -57,6 +58,9 @@ useHead({
 </template>
 
 <style lang="postcss">
+html {
+  @apply font-sans;
+}
 h1,h2,h3,h4,h5,h6 {
   @apply font-bold;
 }

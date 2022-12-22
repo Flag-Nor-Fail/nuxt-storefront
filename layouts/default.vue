@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>{{ useShop().shop.value?.name }}</p>
+    <Header />
     <slot />
   </div>
 </template>

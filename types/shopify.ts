@@ -44,6 +44,13 @@ export interface Scalars {
    * (`johns-apparel.myshopify.com`).
    */
   URL: string
+
+  /**
+   * A JSON object.
+   * Example value:
+   * {"product": {"id": "gid://shopify/Product/1346443542550", "title": "White T-shirt", "options": [{ "name": "Size", "values": ["M", "L"]}]}}
+   */
+  JSON: string
 }
 
 /**
@@ -3522,6 +3529,13 @@ export interface Image {
   /** A unique identifier for the image. */
   id?: Maybe<Scalars['ID']>
   /**
+   * The location of the image as a URL.
+   * If no transform options are specified, then the original image will be preserved including any pre-applied transforms.
+   * All transformation options are considered "best-effort". Any transformation that the original image type doesn't support will be ignored.
+   * If you need multiple variations of the same image, then you can use GraphQL aliases.
+   */
+  url: Scalars['URL']
+  /**
    * The location of the original image as a URL.
    *
    * If there are any existing transformations in the original source URL, they will remain and not be stripped.
@@ -3796,6 +3810,7 @@ export type ManualDiscountApplication = DiscountApplication & {
 
 /** Represents a media interface. */
 export interface Media {
+  __typename?: 'MediaImage' | 'MediaExternalVideo' | 'MediaModel3d' // TODO: verify these are real types
   /** A word or phrase to share the nature or contents of a media. */
   alt?: Maybe<Scalars['String']>
   /** The media content type. */
@@ -4872,6 +4887,11 @@ export type Product = HasMetafields & Node & {
   /** The description of the product, complete with HTML formatting. */
   descriptionHtml: Scalars['HTML']
   /**
+   * The featured image for the product.
+   * This field is functionally equivalent to images(first: 1).
+   **/
+  featuredImage?: Maybe<Image>
+  /**
    * A human-friendly unique string for the Product automatically generated from its title.
    * They are used by the Liquid templating language to refer to objects.
    */
@@ -5088,13 +5108,61 @@ export enum ProductCollectionSortKeys {
   Relevance = 'RELEVANCE',
 }
 
+/** A filter that is supported on the parent field. */
+export interface Filter {
+  __typename?: 'Filter'
+  /** A unique identifier */
+  id: Scalars['ID']
+  /** A human-friendly string for this filter. */
+  label: Scalars['String']
+  /** An enumeration that denotes the type of data this filter represents. */
+  type: FilterType
+  /** The list of values for this filter. */
+  values: Array<FilterValue>
+}
+
+/**
+ * The type of data that the filter group represents.
+ * For more information, refer to [Filter products in a collection with the Storefront API]
+ * (https://shopify.dev/custom-storefronts/products-collections/filter-products).
+ */
+export enum FilterType {
+  /** A list of selectable values. */
+  List = 'LIST',
+  /** A range of prices. */
+  PriceRange = 'PRICE_RANGE',
+  /** A boolean value */
+  Boolean = 'BOOLEAN',
+}
+
+/** A selectable value within a filter. */
+export interface FilterValue {
+  __typename?: 'FilterValue'
+  /** The number of results that match this filter value. */
+  count: Scalars['Int']
+  /** A unique identifier. */
+  id: Scalars['ID']
+  /**
+   * An input object that can be used to filter by this value on the parent field.
+   * The value is provided as a helper for building dynamic filtering UI.
+   * For example, if you have a list of selected FilterValue objects, you can combine their respective input values to use in a subsequent query.
+   */
+  input: Scalars['JSON']
+  /** A human-friendly string for this filter value. */
+  label: Scalars['String']
+}
+
 /** An auto-generated type for paginating through multiple Products. */
 export interface ProductConnection {
   __typename?: 'ProductConnection'
   /** A list of edges. */
   edges: Array<ProductEdge>
+  /** A list of available filters. */
+  filters: Array<Filter>
   /** Information to aid in pagination. */
   pageInfo: PageInfo
+  /** A list of the nodes contained in ProductEdge. */
+  nodes: Array<Product>
 }
 
 /** An auto-generated type which holds one Product and a cursor during pagination. */
@@ -5938,6 +6006,66 @@ export type Shop = HasMetafields & Node & {
   shopifyPaymentsAccountId?: Maybe<Scalars['String']>
   /** The shop’s terms of service. */
   termsOfService?: Maybe<ShopPolicy>
+}
+
+/** A menu used for navigation within a storefront. */
+export type Menu = Node & {
+  __typename?: 'Menu'
+  /** The menu's handle. */
+  handle: Scalars['String']
+  /** A globally-unique identifier. */
+  id: Scalars['ID']
+  /** The menu's child items. */
+  items: Array<MenuItem>
+  /** The count of items on the menu. */
+  itemsCount: Scalars['Int']
+  /** The menu's title. */
+  title: Scalars['String']
+}
+
+/** A menu item within a parent menu. */
+export type MenuItem = Node & {
+  __typename?: 'MenuItem'
+  /** A globally unique identifier. */
+  id: Scalars['ID']
+  /** The menu item's child items. */
+  items: Array<MenuItem>
+  /** The ID of the linked resource */
+  resourceId?: Maybe<Scalars['ID']>
+  /** The menu item's tags to filter a collection. */
+  tags: Array<Scalars['String']>
+  /** The menu item's title. */
+  title: Scalars['String']
+  /** The menu item's type. */
+  type: MenuItemType
+  /** The menu item's URL. */
+  url?: Maybe<Scalars['URL']>
+}
+
+/** A menu item type. */
+export enum MenuItemType {
+  /** A frontpage link. */
+  Frontpage = 'FRONTPAGE',
+  /** A collection link. */
+  Collection = 'COLLECTION',
+  /** A collection link */
+  Collections = 'COLLECTIONS',
+  /** A product link. */
+  Product = 'PRODUCT',
+  /** A catalog link. */
+  Catalog = 'CATALOG',
+  /** A page link. */
+  Page = 'PAGE',
+  /** A blog link. */
+  Blog = 'BLOG',
+  /** An article link. */
+  Article = 'ARTICLE',
+  /** A search link. */
+  Search = 'SEARCH',
+  /** A shop policy link. */
+  ShopPolicy = 'SHOP_POLICY',
+  /** An http link */
+  Http = 'HTTP',
 }
 
 /** Shop represents a collection of the general settings and information about the shop. */

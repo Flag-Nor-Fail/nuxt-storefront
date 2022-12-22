@@ -9,5 +9,5 @@ export default defineApolloClient({
       'Content-Type': 'application/json',
     },
   },
-  connectToDevTools: process.env.NODE_ENV !== 'production',
+  connectToDevTools: true,
 })

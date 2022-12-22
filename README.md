@@ -54,6 +54,67 @@ Nuxt is an open-source framework under MIT license for building modern and perfo
 
 This template is primarily for developers who want a scalable, and customizable starting point for building a headless Shopify Storefront with Nuxt 3. Requires an intermediate understanding of Vue 3 or Nuxt 3.
 
+## Roadmap
+
+This template is still in active development, and is not yet ready for production use. The following features are planned for the initial release:
+
+### MVP
+
+- [ ] Header
+  - [x] Logo
+  - [x] Navigation
+  - [x] Topbar
+  - [ ] Mobile View
+- [ ] Footer
+  - [ ] Logo
+  - [ ] Navigation
+- [ ] Localization
+  - [ ] Country Selector
+  - [ ] Site reflects selected country
+- [ ] Collections
+  - [x] Infinite Scroll Pagination
+  - [ ] Filtering
+  - [ ] Sorting
+  - [x] Product Grid
+  - [ ] SEO
+- [ ] Product Pages
+  - [x] Variant Selection
+  - [x] Images Gallery
+  - [ ] Recommendations
+  - [ ] SEO
+- [ ] Search
+  - [ ] Sorting
+  - [ ] Product Grid
+  - [ ] SEO
+- [x] Cart
+  - [x] Remove Items
+  - [x] Update Quantity
+  - [x] Checkout Button
+  - [x] Summary
+- [ ] Shopify Pages
+- [ ] Customer Authentication
+  - [ ] Login
+  - [ ] Register
+  - [ ] Logout
+  - [ ] Reset Password
+- [ ] Customer Dashboard
+  - [ ] View Order History
+  - [ ] Addresses
+    - [ ] Remove address
+    - [ ] Favorite address
+    - [ ] Create address
+
+### Nice to have
+
+- [ ] Wishlist
+- [ ] Product Quick View
+- [ ] Product Quick Add
+- [ ] Cart Drawer
+
+If you feel capable of contributing to this template, please refer to the [contributing guide](#contributing).
+
+If you have any feature requests, please open an issue.
+
 ## Configuration
 
 Setting up the template is fairly straightforward, but requires a few steps to get up and running.

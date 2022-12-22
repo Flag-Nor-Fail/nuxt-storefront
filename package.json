@@ -8,6 +8,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@headlessui/vue": "^1.7.7",
     "@vueuse/core": "^9.6.0",
     "@vueuse/nuxt": "^9.6.0",
     "@vueuse/router": "^9.6.0",
@@ -17,6 +18,7 @@
     "@antfu/eslint-config": "^0.34.0",
     "@nuxtjs/apollo": "5.0.0-alpha.2",
     "@nuxtjs/tailwindcss": "^6.2.0",
+    "@tailwindcss/typography": "^0.5.8",
     "eslint": "^8.29.0",
     "nuxt": "3.0.0"
   }
