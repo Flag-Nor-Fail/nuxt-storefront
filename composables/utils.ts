@@ -39,8 +39,8 @@ export const useUtils = () => {
   const resolveRelativeLink = (link?: string) => {
     if (!link)
       return '#'
-    const storeOrigin = useShop().shop.value?.primaryDomain?.url
     // get link url w/out '.myshopify.com'
+    const storeOrigin = useShop().shop.value?.primaryDomain?.url.replace(/\.myshopify/, '')
     const linkOrigin = new URL(link).origin.replace(/\.myshopify/, '')
     if (linkOrigin === storeOrigin)
       return new URL(link).pathname
