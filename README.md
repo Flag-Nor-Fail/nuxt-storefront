@@ -32,9 +32,12 @@ Nuxt Storefront is a batteries-included, production-ready, headless and open-sou
 
 ## Plugins
 
+- [Headless UI](https://headlessui.dev/) - Fully accessible UI components, designed to integrate beautifully with Tailwind CSS.
+
 ### Nuxt Modules
 
 - [Vueuse](https://vueuse.org/) - Collection of essential Composition API utilities
+- [Tailwind](https://tailwindcss.nuxt.dev) - Utility-first CSS framework
 
 ## IDE
 
