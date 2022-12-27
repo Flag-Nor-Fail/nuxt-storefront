@@ -47,6 +47,13 @@ const addToCart = async () => {
     <template v-if="!loading">
       <template v-if="result?.product?.id">
 
+        <Head>
+          <Title>{{ result.product.seo.title || result.product.title || undefined }}</Title>
+          <Meta
+            name="description"
+            :content="result.product.seo.description || result.product.description || useShop().shop.value?.description || undefined" />
+        </Head>
+
         <div class="container grid grid-cols-12 gap-10 p-6 mx-auto">
 
           <!-- Images -->

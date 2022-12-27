@@ -59,6 +59,13 @@ const loadMore = () => {
     <template v-if="collectionExists">
       <template v-if="result?.collection?.id">
 
+        <Head>
+          <Title>{{ result.collection.seo.title || result.collection.title || undefined }}</Title>
+          <Meta
+            name="description"
+            :content="result.collection.seo.description || result.collection.description || useShop().shop.value?.description || undefined" />
+        </Head>
+
         <div
           class="px-6 pt-24 pb-6 border-b border-gray-200"
         >

@@ -1537,6 +1537,8 @@ export type Collection = HasMetafields & Node & {
   metafields: MetafieldConnection
   /** List of products in the collection. */
   products: ProductConnection
+  /* The collection's SEO information. */
+  seo: Seo
   /** The collection’s name. Limit of 255 characters. */
   title: Scalars['String']
   /** The date and time when the collection was last modified. */

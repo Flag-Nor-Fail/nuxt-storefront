@@ -83,12 +83,12 @@ This template is still in active development, and is not yet ready for productio
   - [ ] Filtering
   - [ ] Sorting
   - [x] Product Grid
-  - [ ] SEO
+  - [x] SEO
 - [ ] Product Pages
   - [x] Variant Selection
   - [x] Images Gallery
   - [ ] Recommendations
-  - [ ] SEO
+  - [x] SEO
 - [ ] Search
   - [ ] Sorting
   - [ ] Product Grid
@@ -98,9 +98,9 @@ This template is still in active development, and is not yet ready for productio
   - [x] Update Quantity
   - [x] Checkout Button
   - [x] Summary
-- [ ] Shopify Pages
+- [x] Shopify Pages
   - [x] Content
-  - [ ] SEO
+  - [x] SEO
 - [ ] Customer Authentication
   - [ ] Login
   - [ ] Register
