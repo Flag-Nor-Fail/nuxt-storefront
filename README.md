@@ -89,10 +89,9 @@ This template is still in active development, and is not yet ready for productio
   - [x] Images Gallery
   - [ ] Recommendations
   - [x] SEO
-- [ ] Search
-  - [ ] Sorting
-  - [ ] Product Grid
-  - [ ] SEO
+- [x] Search
+  - [x] Product Grid
+  - [x] SEO
 - [x] Cart
   - [x] Remove Items
   - [x] Update Quantity
