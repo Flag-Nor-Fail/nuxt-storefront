@@ -1,6 +1,10 @@
 <script setup lang="ts">
 const cart = useCart().cart
 const cartLines = useCart().lines
+
+useHead({
+  title: computed(() => `Cart (${cartLines.value?.edges?.length || 0})`),
+})
 </script>
 
 <template>
